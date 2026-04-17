@@ -1367,7 +1367,7 @@ function Container42() {
   return (
     <div className="min-h-[970.5px] relative shrink-0 w-full" data-name="Container">
       <Container43 />
-      <div className="absolute content-stretch flex flex-col gap-[48px] items-start left-[432px] top-0 w-[800px]">
+      <div className="absolute content-stretch flex flex-col gap-[28px] items-start left-[432px] top-0 w-[800px]">
         <Heading7 />
         <Container46 />
         <Container47 />
