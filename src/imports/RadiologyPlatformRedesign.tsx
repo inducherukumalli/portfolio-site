@@ -1,13 +1,33 @@
-import { useState, useEffect, createContext, useContext } from "react";
+import { useState, useEffect, useRef, createContext, useContext } from "react";
 import svgPaths from "./svg-v68fn0yc73";
 import imgProjectCard from "figma:asset/eecd53d4c7e30b558274726be0ca4e9a5028f173.png";
 import imgProjectCard1 from "figma:asset/1bdc70e7c75407d99d0c2cbbbd3c1acb288500bc.png";
 import imgContainer from "figma:asset/4b8e9ecccfdd862903ec0a59b5e7dd473e9f0e82.png";
 
-const TabContext = createContext<{ activeTab: string; setActiveTab: (t: string) => void }>({ activeTab: "work", setActiveTab: () => {} });
+type ProjectTab = "work" | "personal";
+type SectionTab = "work" | "about" | "process" | "contact";
+
+const PROJECT_TAB_DEFAULT: ProjectTab = "work";
+const SECTION_TAB_DEFAULT: SectionTab = "work";
+const SECTION_IDS: SectionTab[] = ["work", "about", "process", "contact"];
+const DESIGN_WIDTH = 1341;
+const HEADER_OFFSET = 88;
+
+const ProjectTabContext = createContext<{ activeProjectTab: ProjectTab; setActiveProjectTab: (t: ProjectTab) => void }>({
+  activeProjectTab: PROJECT_TAB_DEFAULT,
+  setActiveProjectTab: () => {},
+});
+
+const SectionTabContext = createContext<{ activeSection: SectionTab; setActiveSection: (t: SectionTab) => void }>({
+  activeSection: SECTION_TAB_DEFAULT,
+  setActiveSection: () => {},
+});
 
 function scrollTo(id: string) {
-  document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  const section = document.getElementById(id);
+  if (!section) return;
+  const top = section.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET;
+  window.scrollTo({ top, behavior: "smooth" });
 }
 
 function Container() {
@@ -513,22 +533,22 @@ function Heading2() {
 }
 
 function Container24() {
-  const { activeTab, setActiveTab } = useContext(TabContext);
+  const { activeProjectTab, setActiveProjectTab } = useContext(ProjectTabContext);
   return (
     <div className="bg-[#f1f5f9] h-[44px] relative rounded-[16777200px] shrink-0 w-[214.711px] flex items-center p-[4px] cursor-pointer" data-name="Container">
       <div
-        className={`h-[36px] rounded-[16777200px] flex items-center justify-center px-[16px] z-10 transition-colors ${activeTab === "work" ? "bg-[#0a2540]" : ""}`}
-        onClick={() => setActiveTab("work")}
+        className={`h-[36px] rounded-[16777200px] flex items-center justify-center px-[16px] z-10 transition-colors ${activeProjectTab === "work" ? "bg-[#0a2540]" : ""}`}
+        onClick={() => setActiveProjectTab("work")}
       >
-        <p className={`font-['IBM_Plex_Sans:Medium',sans-serif] font-medium leading-[20px] text-[14px] text-center whitespace-nowrap ${activeTab === "work" ? "text-white" : "text-[#64748b]"}`} style={{ fontVariationSettings: "'wdth' 100" }}>
+        <p className={`font-['IBM_Plex_Sans:Medium',sans-serif] font-medium leading-[20px] text-[14px] text-center whitespace-nowrap ${activeProjectTab === "work" ? "text-white" : "text-[#64748b]"}`} style={{ fontVariationSettings: "'wdth' 100" }}>
           Work
         </p>
       </div>
       <div
-        className={`h-[36px] rounded-[16777200px] flex items-center justify-center px-[16px] z-10 transition-colors ${activeTab === "personal" ? "bg-[#0a2540]" : ""}`}
-        onClick={() => setActiveTab("personal")}
+        className={`h-[36px] rounded-[16777200px] flex items-center justify-center px-[16px] z-10 transition-colors ${activeProjectTab === "personal" ? "bg-[#0a2540]" : ""}`}
+        onClick={() => setActiveProjectTab("personal")}
       >
-        <p className={`font-['IBM_Plex_Sans:Medium',sans-serif] font-medium leading-[20px] text-[14px] text-center whitespace-nowrap ${activeTab === "personal" ? "text-white" : "text-[#64748b]"}`} style={{ fontVariationSettings: "'wdth' 100" }}>
+        <p className={`font-['IBM_Plex_Sans:Medium',sans-serif] font-medium leading-[20px] text-[14px] text-center whitespace-nowrap ${activeProjectTab === "personal" ? "text-white" : "text-[#64748b]"}`} style={{ fontVariationSettings: "'wdth' 100" }}>
           Personal Projects
         </p>
       </div>
@@ -1003,10 +1023,10 @@ function PersonalProjectCard2() {
 }
 
 function Container25() {
-  const { activeTab } = useContext(TabContext);
+  const { activeProjectTab } = useContext(ProjectTabContext);
   return (
     <div className="h-[592px] relative shrink-0 w-full" data-name="Container">
-      {activeTab === "work" ? (
+      {activeProjectTab === "work" ? (
         <>
           <Article />
           <Article1 />
@@ -3004,89 +3024,89 @@ function Text69() {
 }
 
 function Button4() {
-  const { activeTab, setActiveTab } = useContext(TabContext);
+  const { activeSection, setActiveSection } = useContext(SectionTabContext);
   return (
     <div
       className="absolute h-[20px] left-0 top-[7px] w-[33.602px] cursor-pointer"
       data-name="Button"
       onClick={() => {
-        setActiveTab("work");
+        setActiveSection("work");
         scrollTo("work");
       }}
     >
       <p
-        className={`-translate-x-1/2 absolute font-['IBM_Plex_Sans:Medium',sans-serif] font-medium leading-[20px] left-[17px] text-[14px] text-center top-[-0.5px] whitespace-nowrap transition-colors ${activeTab === "work" ? "text-[#f59e0b]" : "text-[rgba(255,255,255,0.6)] hover:text-white"}`}
+        className={`-translate-x-1/2 absolute font-['IBM_Plex_Sans:Medium',sans-serif] font-medium leading-[20px] left-[17px] text-[14px] text-center top-[-0.5px] whitespace-nowrap transition-colors ${activeSection === "work" ? "text-[#f59e0b]" : "text-[rgba(255,255,255,0.6)] hover:text-white"}`}
         style={{ fontVariationSettings: "'wdth' 100" }}
       >
         Work
       </p>
-      {activeTab === "work" ? <Text69 /> : null}
+      {activeSection === "work" ? <Text69 /> : null}
     </div>
   );
 }
 
 function Button5() {
-  const { activeTab, setActiveTab } = useContext(TabContext);
+  const { activeSection, setActiveSection } = useContext(SectionTabContext);
   return (
     <div
       className="absolute h-[20px] left-[65.6px] top-[7px] w-[38.617px] cursor-pointer"
       data-name="Button"
       onClick={() => {
-        setActiveTab("about");
+        setActiveSection("about");
         scrollTo("about");
       }}
     >
       <p
-        className={`-translate-x-1/2 absolute font-['IBM_Plex_Sans:Medium',sans-serif] font-medium leading-[20px] left-[19.5px] text-[14px] text-center top-[-0.5px] whitespace-nowrap transition-colors ${activeTab === "about" ? "text-[#f59e0b]" : "text-[rgba(255,255,255,0.6)] hover:text-white"}`}
+        className={`-translate-x-1/2 absolute font-['IBM_Plex_Sans:Medium',sans-serif] font-medium leading-[20px] left-[19.5px] text-[14px] text-center top-[-0.5px] whitespace-nowrap transition-colors ${activeSection === "about" ? "text-[#f59e0b]" : "text-[rgba(255,255,255,0.6)] hover:text-white"}`}
         style={{ fontVariationSettings: "'wdth' 100" }}
       >
         About
       </p>
-      {activeTab === "about" ? <Text69 /> : null}
+      {activeSection === "about" ? <Text69 /> : null}
     </div>
   );
 }
 
 function Button6() {
-  const { activeTab, setActiveTab } = useContext(TabContext);
+  const { activeSection, setActiveSection } = useContext(SectionTabContext);
   return (
     <div
       className="absolute h-[20px] left-[136.22px] top-[7px] w-[50.359px] cursor-pointer"
       data-name="Button"
       onClick={() => {
-        setActiveTab("process");
+        setActiveSection("process");
         scrollTo("process");
       }}
     >
       <p
-        className={`-translate-x-1/2 absolute font-['IBM_Plex_Sans:Medium',sans-serif] font-medium leading-[20px] left-[25.5px] text-[14px] text-center top-[-0.5px] whitespace-nowrap transition-colors ${activeTab === "process" ? "text-[#f59e0b]" : "text-[rgba(255,255,255,0.6)] hover:text-white"}`}
+        className={`-translate-x-1/2 absolute font-['IBM_Plex_Sans:Medium',sans-serif] font-medium leading-[20px] left-[25.5px] text-[14px] text-center top-[-0.5px] whitespace-nowrap transition-colors ${activeSection === "process" ? "text-[#f59e0b]" : "text-[rgba(255,255,255,0.6)] hover:text-white"}`}
         style={{ fontVariationSettings: "'wdth' 100" }}
       >
         Process
       </p>
-      {activeTab === "process" ? <Text69 /> : null}
+      {activeSection === "process" ? <Text69 /> : null}
     </div>
   );
 }
 
 function Button7() {
-  const { activeTab, setActiveTab } = useContext(TabContext);
+  const { activeSection, setActiveSection } = useContext(SectionTabContext);
   return (
     <div
       className="absolute h-[20px] left-[218.58px] top-[7px] w-[49.883px] cursor-pointer"
       data-name="Button"
       onClick={() => {
-        setActiveTab("contact");
+        setActiveSection("contact");
         scrollTo("contact");
       }}
     >
       <p
-        className={`-translate-x-1/2 absolute font-['IBM_Plex_Sans:Medium',sans-serif] font-medium leading-[20px] left-[25px] text-[14px] text-center top-[-0.5px] whitespace-nowrap transition-colors ${activeTab === "contact" ? "text-[#f59e0b]" : "text-[rgba(255,255,255,0.6)] hover:text-white"}`}
+        className={`-translate-x-1/2 absolute font-['IBM_Plex_Sans:Medium',sans-serif] font-medium leading-[20px] left-[25px] text-[14px] text-center top-[-0.5px] whitespace-nowrap transition-colors ${activeSection === "contact" ? "text-[#f59e0b]" : "text-[rgba(255,255,255,0.6)] hover:text-white"}`}
         style={{ fontVariationSettings: "'wdth' 100" }}
       >
         Contact
       </p>
-      {activeTab === "contact" ? <Text69 /> : null}
+      {activeSection === "contact" ? <Text69 /> : null}
     </div>
   );
 }
@@ -3106,7 +3126,7 @@ function Navigation() {
 
 function Container121() {
   return (
-    <div className="fixed content-stretch flex h-[64px] items-center justify-between left-0 px-[54.5px] top-[3px] w-full z-40 bg-[#0a2540]/80 backdrop-blur-md" data-name="Container">
+    <div className="fixed content-stretch flex h-[64px] items-center justify-between left-0 px-[16px] sm:px-[24px] md:px-[54.5px] top-[3px] w-full z-40 bg-[#0a2540]/80 backdrop-blur-md" data-name="Container">
       <Button3 />
       <Navigation />
     </div>
@@ -3136,14 +3156,91 @@ function ScrollProgressBar() {
 }
 
 export default function RadiologyPlatformRedesign() {
-  const [activeTab, setActiveTab] = useState("work");
+  const appRef = useRef<HTMLDivElement>(null);
+  const [activeProjectTab, setActiveProjectTab] = useState<ProjectTab>(PROJECT_TAB_DEFAULT);
+  const [activeSection, setActiveSection] = useState<SectionTab>(SECTION_TAB_DEFAULT);
+  const [pageScale, setPageScale] = useState(1);
+  const [scaledHeight, setScaledHeight] = useState<number | null>(null);
+
+  useEffect(() => {
+    const updateActiveSection = () => {
+      let currentSection = SECTION_TAB_DEFAULT;
+
+      for (const sectionId of SECTION_IDS) {
+        const section = document.getElementById(sectionId);
+        if (section && section.getBoundingClientRect().top <= HEADER_OFFSET + 40) {
+          currentSection = sectionId;
+        }
+      }
+
+      setActiveSection(currentSection);
+    };
+
+    updateActiveSection();
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+    window.addEventListener("resize", updateActiveSection);
+
+    return () => {
+      window.removeEventListener("scroll", updateActiveSection);
+      window.removeEventListener("resize", updateActiveSection);
+    };
+  }, []);
+
+  useEffect(() => {
+    const updateScale = () => {
+      setPageScale(window.innerWidth < DESIGN_WIDTH ? window.innerWidth / DESIGN_WIDTH : 1);
+    };
+
+    updateScale();
+    window.addEventListener("resize", updateScale);
+
+    return () => window.removeEventListener("resize", updateScale);
+  }, []);
+
+  useEffect(() => {
+    const node = appRef.current;
+    if (!node) return;
+
+    const updateScaledHeight = () => {
+      setScaledHeight(node.scrollHeight * pageScale);
+    };
+
+    updateScaledHeight();
+
+    const resizeObserver = new ResizeObserver(updateScaledHeight);
+    resizeObserver.observe(node);
+    window.addEventListener("resize", updateScaledHeight);
+
+    return () => {
+      resizeObserver.disconnect();
+      window.removeEventListener("resize", updateScaledHeight);
+    };
+  }, [pageScale]);
+
   return (
-    <TabContext.Provider value={{ activeTab, setActiveTab }}>
-      <div className="bg-white relative w-full" data-name="Radiology Platform Redesign">
-        <ScrollProgressBar />
-        <Container121 />
-        <App />
-      </div>
-    </TabContext.Provider>
+    <ProjectTabContext.Provider value={{ activeProjectTab, setActiveProjectTab }}>
+      <SectionTabContext.Provider value={{ activeSection, setActiveSection }}>
+        <div className="bg-white relative w-full overflow-x-hidden" data-name="Radiology Platform Redesign">
+          <ScrollProgressBar />
+          <Container121 />
+          <div
+            className="w-full overflow-x-hidden"
+            style={pageScale < 1 && scaledHeight ? { height: `${scaledHeight}px` } : undefined}
+          >
+            <div
+              ref={appRef}
+              className="mx-auto origin-top"
+              style={{
+                width: `${DESIGN_WIDTH}px`,
+                transform: `scale(${pageScale})`,
+                transformOrigin: "top center",
+              }}
+            >
+              <App />
+            </div>
+          </div>
+        </div>
+      </SectionTabContext.Provider>
+    </ProjectTabContext.Provider>
   );
 }
