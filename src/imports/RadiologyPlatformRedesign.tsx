@@ -1223,7 +1223,7 @@ function Heading8() {
 
 function Text28() {
   return (
-    <div className="absolute content-stretch flex items-center justify-center left-0 p-[2px] rounded-[16777200px] size-[24px] top-[2px]" data-name="Text">
+    <div className="content-stretch flex items-center justify-center relative shrink-0 p-[2px] rounded-[16777200px] size-[24px]" data-name="Text">
       <div aria-hidden="true" className="absolute border-2 border-[#f59e0b] border-solid inset-0 pointer-events-none rounded-[16777200px]" />
       <p className="font-['IBM_Plex_Mono:Regular',sans-serif] leading-[16px] not-italic relative shrink-0 text-[#f59e0b] text-[12px] whitespace-nowrap">1</p>
     </div>
@@ -1266,7 +1266,7 @@ function Container52() {
 
 function Text29() {
   return (
-    <div className="absolute content-stretch flex items-center justify-center left-0 p-[2px] rounded-[16777200px] size-[24px] top-[2px]" data-name="Text">
+    <div className="content-stretch flex items-center justify-center relative shrink-0 p-[2px] rounded-[16777200px] size-[24px]" data-name="Text">
       <div aria-hidden="true" className="absolute border-2 border-[#f59e0b] border-solid inset-0 pointer-events-none rounded-[16777200px]" />
       <p className="font-['IBM_Plex_Mono:Regular',sans-serif] leading-[16px] not-italic relative shrink-0 text-[#f59e0b] text-[12px] whitespace-nowrap">2</p>
     </div>
@@ -1309,7 +1309,7 @@ function Container54() {
 
 function Text30() {
   return (
-    <div className="absolute content-stretch flex items-center justify-center left-0 p-[2px] rounded-[16777200px] size-[24px] top-[2px]" data-name="Text">
+    <div className="content-stretch flex items-center justify-center relative shrink-0 p-[2px] rounded-[16777200px] size-[24px]" data-name="Text">
       <div aria-hidden="true" className="absolute border-2 border-[#f59e0b] border-solid inset-0 pointer-events-none rounded-[16777200px]" />
       <p className="font-['IBM_Plex_Mono:Regular',sans-serif] leading-[16px] not-italic relative shrink-0 text-[#f59e0b] text-[12px] whitespace-nowrap">3</p>
     </div>
