@@ -1232,23 +1232,23 @@ function Text28() {
 
 function Paragraph12() {
   return (
-    <div className="h-[24px] relative shrink-0 w-full" data-name="Paragraph">
-      <p className="absolute font-['Crimson_Pro:Regular',sans-serif] font-normal leading-[24px] left-0 text-[#0a2540] text-[16px] top-0 whitespace-nowrap">Behaviour over beauty</p>
+    <div className="relative shrink-0 w-full" data-name="Paragraph">
+      <p className="font-['Crimson_Pro:Regular',sans-serif] font-normal leading-[24px] relative text-[#0a2540] text-[16px]">Behaviour over beauty</p>
     </div>
   );
 }
 
 function Paragraph13() {
   return (
-    <div className="h-[45.5px] relative shrink-0 w-full" data-name="Paragraph">
-      <p className="absolute font-['IBM_Plex_Sans:Regular',sans-serif] font-normal leading-[22.75px] left-0 text-[#475569] text-[14px] top-[-1px] w-[756px]" style={{ fontVariationSettings: "'wdth' 100" }}>{`An interaction that looks stunning but confuses people isn't good design. I start with what the user is trying to do and work backwards to the visual.`}</p>
+    <div className="relative shrink-0 w-full" data-name="Paragraph">
+      <p className="font-['IBM_Plex_Sans:Regular',sans-serif] font-normal leading-[22.75px] relative text-[#475569] text-[14px] w-full" style={{ fontVariationSettings: "'wdth' 100" }}>{`An interaction that looks stunning but confuses people isn't good design. I start with what the user is trying to do and work backwards to the visual.`}</p>
     </div>
   );
 }
 
 function Container53() {
   return (
-    <div className="absolute content-stretch flex flex-col gap-[4px] h-[73.5px] items-start left-[44px] top-0 w-[756px]" data-name="Container">
+    <div className="content-stretch flex flex-col gap-[4px] items-start relative shrink-0 w-[756px]" data-name="Container">
       <Paragraph12 />
       <Paragraph13 />
     </div>
@@ -1257,7 +1257,7 @@ function Container53() {
 
 function Container52() {
   return (
-    <div className="h-[73.5px] relative shrink-0 w-full" data-name="Container">
+    <div className="content-stretch flex gap-[20px] items-start relative shrink-0 w-full" data-name="Container">
       <Text28 />
       <Container53 />
     </div>
@@ -1275,23 +1275,23 @@ function Text29() {
 
 function Paragraph14() {
   return (
-    <div className="h-[24px] relative shrink-0 w-full" data-name="Paragraph">
-      <p className="absolute font-['Crimson_Pro:Regular',sans-serif] font-normal leading-[24px] left-0 text-[#0a2540] text-[16px] top-0 whitespace-nowrap">Honesty about constraints</p>
+    <div className="relative shrink-0 w-full" data-name="Paragraph">
+      <p className="font-['Crimson_Pro:Regular',sans-serif] font-normal leading-[24px] relative text-[#0a2540] text-[16px]">Honesty about constraints</p>
     </div>
   );
 }
 
 function Paragraph15() {
   return (
-    <div className="h-[45.5px] relative shrink-0 w-full" data-name="Paragraph">
-      <p className="absolute font-['IBM_Plex_Sans:Regular',sans-serif] font-normal leading-[22.75px] left-0 text-[#475569] text-[14px] top-[-1px] w-[756px]" style={{ fontVariationSettings: "'wdth' 100" }}>{`Half-built features that behave unpredictably are worse than missing ones. I name the constraints, document the compromises, and make the case for what didn't ship.`}</p>
+    <div className="relative shrink-0 w-full" data-name="Paragraph">
+      <p className="font-['IBM_Plex_Sans:Regular',sans-serif] font-normal leading-[22.75px] relative text-[#475569] text-[14px] w-full" style={{ fontVariationSettings: "'wdth' 100" }}>{`Half-built features that behave unpredictably are worse than missing ones. I name the constraints, document the compromises, and make the case for what didn't ship.`}</p>
     </div>
   );
 }
 
 function Container55() {
   return (
-    <div className="absolute content-stretch flex flex-col gap-[4px] h-[73.5px] items-start left-[44px] top-0 w-[756px]" data-name="Container">
+    <div className="content-stretch flex flex-col gap-[4px] items-start relative shrink-0 w-[756px]" data-name="Container">
       <Paragraph14 />
       <Paragraph15 />
     </div>
@@ -1300,7 +1300,7 @@ function Container55() {
 
 function Container54() {
   return (
-    <div className="h-[73.5px] relative shrink-0 w-full" data-name="Container">
+    <div className="content-stretch flex gap-[20px] items-start relative shrink-0 w-full" data-name="Container">
       <Text29 />
       <Container55 />
     </div>
@@ -1318,16 +1318,16 @@ function Text30() {
 
 function Paragraph16() {
   return (
-    <div className="h-[24px] relative shrink-0 w-full" data-name="Paragraph">
-      <p className="absolute font-['Crimson_Pro:Regular',sans-serif] font-normal leading-[24px] left-0 text-[#0a2540] text-[16px] top-0 whitespace-nowrap">Design rationale, not just output</p>
+    <div className="relative shrink-0 w-full" data-name="Paragraph">
+      <p className="font-['Crimson_Pro:Regular',sans-serif] font-normal leading-[24px] relative text-[#0a2540] text-[16px]">Design rationale, not just output</p>
     </div>
   );
 }
 
 function Paragraph17() {
   return (
-    <div className="h-[45.5px] relative shrink-0 w-full" data-name="Paragraph">
-      <p className="absolute font-['IBM_Plex_Sans:Regular',sans-serif] font-normal leading-[22.75px] left-0 text-[#475569] text-[14px] top-[-1px] w-[756px]" style={{ fontVariationSettings: "'wdth' 100" }}>
+    <div className="relative shrink-0 w-full" data-name="Paragraph">
+      <p className="font-['IBM_Plex_Sans:Regular',sans-serif] font-normal leading-[22.75px] relative text-[#475569] text-[14px] w-full" style={{ fontVariationSettings: "'wdth' 100" }}>
         Every artefact I deliver includes the thinking behind it — annotated flows, state diagrams, and written rationale. Designers hand off reasoning, not just pixels.
       </p>
     </div>
@@ -1336,7 +1336,7 @@ function Paragraph17() {
 
 function Container57() {
   return (
-    <div className="absolute content-stretch flex flex-col gap-[4px] h-[73.5px] items-start left-[44px] top-0 w-[756px]" data-name="Container">
+    <div className="content-stretch flex flex-col gap-[4px] items-start relative shrink-0 w-[756px]" data-name="Container">
       <Paragraph16 />
       <Paragraph17 />
     </div>
@@ -1345,7 +1345,7 @@ function Container57() {
 
 function Container56() {
   return (
-    <div className="h-[73.5px] relative shrink-0 w-full" data-name="Container">
+    <div className="content-stretch flex gap-[20px] items-start relative shrink-0 w-full" data-name="Container">
       <Text30 />
       <Container57 />
     </div>
