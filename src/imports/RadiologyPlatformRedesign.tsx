@@ -3004,42 +3004,89 @@ function Text69() {
 }
 
 function Button4() {
+  const { activeTab, setActiveTab } = useContext(TabContext);
   return (
-    <div className="absolute h-[20px] left-0 top-[7px] w-[33.602px] cursor-pointer" data-name="Button" onClick={() => scrollTo("work")}>
-      <p className="-translate-x-1/2 absolute font-['IBM_Plex_Sans:Medium',sans-serif] font-medium leading-[20px] left-[17px] text-[#f59e0b] text-[14px] text-center top-[-0.5px] whitespace-nowrap" style={{ fontVariationSettings: "'wdth' 100" }}>
+    <div
+      className="absolute h-[20px] left-0 top-[7px] w-[33.602px] cursor-pointer"
+      data-name="Button"
+      onClick={() => {
+        setActiveTab("work");
+        scrollTo("work");
+      }}
+    >
+      <p
+        className={`-translate-x-1/2 absolute font-['IBM_Plex_Sans:Medium',sans-serif] font-medium leading-[20px] left-[17px] text-[14px] text-center top-[-0.5px] whitespace-nowrap transition-colors ${activeTab === "work" ? "text-[#f59e0b]" : "text-[rgba(255,255,255,0.6)] hover:text-white"}`}
+        style={{ fontVariationSettings: "'wdth' 100" }}
+      >
         Work
       </p>
-      <Text69 />
+      {activeTab === "work" ? <Text69 /> : null}
     </div>
   );
 }
 
 function Button5() {
+  const { activeTab, setActiveTab } = useContext(TabContext);
   return (
-    <div className="absolute h-[20px] left-[65.6px] top-[7px] w-[38.617px] cursor-pointer hover:text-white transition-colors" data-name="Button" onClick={() => scrollTo("about")}>
-      <p className="-translate-x-1/2 absolute font-['IBM_Plex_Sans:Medium',sans-serif] font-medium leading-[20px] left-[19.5px] text-[14px] text-[rgba(255,255,255,0.6)] text-center top-[-0.5px] whitespace-nowrap hover:text-white" style={{ fontVariationSettings: "'wdth' 100" }}>
+    <div
+      className="absolute h-[20px] left-[65.6px] top-[7px] w-[38.617px] cursor-pointer"
+      data-name="Button"
+      onClick={() => {
+        setActiveTab("about");
+        scrollTo("about");
+      }}
+    >
+      <p
+        className={`-translate-x-1/2 absolute font-['IBM_Plex_Sans:Medium',sans-serif] font-medium leading-[20px] left-[19.5px] text-[14px] text-center top-[-0.5px] whitespace-nowrap transition-colors ${activeTab === "about" ? "text-[#f59e0b]" : "text-[rgba(255,255,255,0.6)] hover:text-white"}`}
+        style={{ fontVariationSettings: "'wdth' 100" }}
+      >
         About
       </p>
+      {activeTab === "about" ? <Text69 /> : null}
     </div>
   );
 }
 
 function Button6() {
+  const { activeTab, setActiveTab } = useContext(TabContext);
   return (
-    <div className="absolute h-[20px] left-[136.22px] top-[7px] w-[50.359px] cursor-pointer" data-name="Button" onClick={() => scrollTo("process")}>
-      <p className="-translate-x-1/2 absolute font-['IBM_Plex_Sans:Medium',sans-serif] font-medium leading-[20px] left-[25.5px] text-[14px] text-[rgba(255,255,255,0.6)] text-center top-[-0.5px] whitespace-nowrap hover:text-white" style={{ fontVariationSettings: "'wdth' 100" }}>
+    <div
+      className="absolute h-[20px] left-[136.22px] top-[7px] w-[50.359px] cursor-pointer"
+      data-name="Button"
+      onClick={() => {
+        setActiveTab("process");
+        scrollTo("process");
+      }}
+    >
+      <p
+        className={`-translate-x-1/2 absolute font-['IBM_Plex_Sans:Medium',sans-serif] font-medium leading-[20px] left-[25.5px] text-[14px] text-center top-[-0.5px] whitespace-nowrap transition-colors ${activeTab === "process" ? "text-[#f59e0b]" : "text-[rgba(255,255,255,0.6)] hover:text-white"}`}
+        style={{ fontVariationSettings: "'wdth' 100" }}
+      >
         Process
       </p>
+      {activeTab === "process" ? <Text69 /> : null}
     </div>
   );
 }
 
 function Button7() {
+  const { activeTab, setActiveTab } = useContext(TabContext);
   return (
-    <div className="absolute h-[20px] left-[218.58px] top-[7px] w-[49.883px] cursor-pointer" data-name="Button" onClick={() => scrollTo("contact")}>
-      <p className="-translate-x-1/2 absolute font-['IBM_Plex_Sans:Medium',sans-serif] font-medium leading-[20px] left-[25px] text-[14px] text-[rgba(255,255,255,0.6)] text-center top-[-0.5px] whitespace-nowrap hover:text-white" style={{ fontVariationSettings: "'wdth' 100" }}>
+    <div
+      className="absolute h-[20px] left-[218.58px] top-[7px] w-[49.883px] cursor-pointer"
+      data-name="Button"
+      onClick={() => {
+        setActiveTab("contact");
+        scrollTo("contact");
+      }}
+    >
+      <p
+        className={`-translate-x-1/2 absolute font-['IBM_Plex_Sans:Medium',sans-serif] font-medium leading-[20px] left-[25px] text-[14px] text-center top-[-0.5px] whitespace-nowrap transition-colors ${activeTab === "contact" ? "text-[#f59e0b]" : "text-[rgba(255,255,255,0.6)] hover:text-white"}`}
+        style={{ fontVariationSettings: "'wdth' 100" }}
+      >
         Contact
       </p>
+      {activeTab === "contact" ? <Text69 /> : null}
     </div>
   );
 }
