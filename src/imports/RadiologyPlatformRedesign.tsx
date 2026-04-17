@@ -2809,14 +2809,12 @@ function Link1() {
 
 function Icon14() {
   return (
-    <div className="h-[20px] overflow-clip relative shrink-0 w-full" data-name="Icon">
-      <div className="absolute inset-[16.63%_8.33%_12.5%_8.33%]" data-name="Vector">
-        <div className="absolute inset-[-5.88%_-5%_-5.91%_-5%]">
-          <svg className="block size-full" fill="none" preserveAspectRatio="none" viewBox="0 0 18.3335 15.8435">
-            <path d={svgPaths.p3693ea00} id="Vector" stroke="var(--stroke-0, #F59E0B)" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.66667" />
-          </svg>
-        </div>
-      </div>
+    <div className="relative shrink-0 size-[20px]" data-name="Icon">
+      <svg className="absolute block inset-0 size-full" fill="none" preserveAspectRatio="xMidYMid meet" viewBox="0 0 20 20">
+        <circle cx="5" cy="10" r="3" fill="#F59E0B" />
+        <ellipse cx="10.5" cy="10" rx="2.5" ry="5" fill="#F59E0B" fillOpacity="0.85" />
+        <ellipse cx="15.75" cy="10" rx="1.75" ry="4" fill="#F59E0B" fillOpacity="0.6" />
+      </svg>
     </div>
   );
 }
@@ -2834,7 +2832,7 @@ function Text67() {
 function Paragraph42() {
   return (
     <div className="content-stretch flex h-[16px] items-start relative shrink-0 w-full" data-name="Paragraph">
-      <p className="font-['IBM_Plex_Mono:Regular',sans-serif] leading-[16px] not-italic relative shrink-0 text-[12px] text-[rgba(255,255,255,0.35)] tracking-[1.2px] uppercase whitespace-nowrap">Twitter / X</p>
+      <p className="font-['IBM_Plex_Mono:Regular',sans-serif] leading-[16px] not-italic relative shrink-0 text-[12px] text-[rgba(255,255,255,0.35)] tracking-[1.2px] uppercase whitespace-nowrap">Medium</p>
     </div>
   );
 }
@@ -3189,8 +3187,8 @@ export default function RadiologyPlatformRedesign() {
   useEffect(() => {
     const updateScale = () => {
       const viewportWidth = window.innerWidth;
-      const fittedScale = (viewportWidth - 32) / DESIGN_WIDTH;
-      setPageScale(Math.min(Math.max(fittedScale, 0.82), 1.08));
+      const fittedScale = (viewportWidth - 8) / DESIGN_WIDTH;
+      setPageScale(Math.min(Math.max(fittedScale, 0.84), 1.12));
     };
 
     updateScale();
