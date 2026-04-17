@@ -3187,8 +3187,8 @@ export default function RadiologyPlatformRedesign() {
   useEffect(() => {
     const updateScale = () => {
       const viewportWidth = window.innerWidth;
-      const fittedScale = (viewportWidth - 8) / DESIGN_WIDTH;
-      setPageScale(Math.min(Math.max(fittedScale, 0.84), 1.12));
+      const fittedScale = (viewportWidth - 2) / DESIGN_WIDTH;
+      setPageScale(Math.min(Math.max(fittedScale, 0.86), 1.14));
     };
 
     updateScale();
