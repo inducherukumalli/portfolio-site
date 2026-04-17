@@ -1086,32 +1086,32 @@ function Container43() {
 
 function Heading7() {
   return (
-    <div className="absolute h-[120px] left-[432px] top-0 w-[800px]" data-name="Heading 2">
-      <p className="absolute font-['Crimson_Pro:Medium',sans-serif] font-medium leading-[60px] left-0 text-[#0a2540] text-[48px] top-0 w-[800px]">{`I design complex systems for people who don't have time for them to be confusing.`}</p>
+    <div className="relative shrink-0 w-full" data-name="Heading 2">
+      <p className="font-['Crimson_Pro:Medium',sans-serif] font-medium leading-[60px] relative text-[#0a2540] text-[48px] w-full">{`I design complex systems for people who don't have time for them to be confusing.`}</p>
     </div>
   );
 }
 
 function Paragraph3() {
   return (
-    <div className="h-[87.75px] relative shrink-0 w-full" data-name="Paragraph">
-      <p className="absolute font-['IBM_Plex_Sans:Regular',sans-serif] font-normal leading-[29.25px] left-0 text-[#475569] text-[18px] top-[-0.5px] w-[800px]" style={{ fontVariationSettings: "'wdth' 100" }}>{`I'm a UX designer with five years of experience working at the intersection of enterprise software, clinical tools, and systems that carry real stakes. My background spans healthcare SaaS, financial services, and large-scale SAP product design.`}</p>
+    <div className="relative shrink-0 w-full" data-name="Paragraph">
+      <p className="font-['IBM_Plex_Sans:Regular',sans-serif] font-normal leading-[29.25px] relative text-[#475569] text-[18px] w-full" style={{ fontVariationSettings: "'wdth' 100" }}>{`I'm a UX designer with five years of experience working at the intersection of enterprise software, clinical tools, and systems that carry real stakes. My background spans healthcare SaaS, financial services, and large-scale SAP product design.`}</p>
     </div>
   );
 }
 
 function Paragraph4() {
   return (
-    <div className="h-[87.75px] relative shrink-0 w-full" data-name="Paragraph">
-      <p className="absolute font-['IBM_Plex_Sans:Regular',sans-serif] font-normal leading-[29.25px] left-0 text-[#475569] text-[18px] top-[-0.5px] w-[800px]" style={{ fontVariationSettings: "'wdth' 100" }}>{`I spend a lot of time thinking about state — what the user is looking at, what they don't know yet, and what happens when they take an action they didn't fully intend. Most design problems I've worked on aren't about missing features. They're about missing clarity.`}</p>
+    <div className="relative shrink-0 w-full" data-name="Paragraph">
+      <p className="font-['IBM_Plex_Sans:Regular',sans-serif] font-normal leading-[29.25px] relative text-[#475569] text-[18px] w-full" style={{ fontVariationSettings: "'wdth' 100" }}>{`I spend a lot of time thinking about state — what the user is looking at, what they don't know yet, and what happens when they take an action they didn't fully intend. Most design problems I've worked on aren't about missing features. They're about missing clarity.`}</p>
     </div>
   );
 }
 
 function Paragraph5() {
   return (
-    <div className="h-[58.5px] relative shrink-0 w-full" data-name="Paragraph">
-      <p className="absolute font-['IBM_Plex_Sans:Regular',sans-serif] font-normal leading-[29.25px] left-0 text-[#475569] text-[18px] top-[-0.5px] w-[800px]" style={{ fontVariationSettings: "'wdth' 100" }}>
+    <div className="relative shrink-0 w-full" data-name="Paragraph">
+      <p className="font-['IBM_Plex_Sans:Regular',sans-serif] font-normal leading-[29.25px] relative text-[#475569] text-[18px] w-full" style={{ fontVariationSettings: "'wdth' 100" }}>
         I studied Industrial product design — My background is in industrial product design — which taught me to design with constraints, not around them. I brought that systems-first thinking into digital products, and it shaped how I approach enterprise UX: as an interconnected system with real human costs when it fails, not a collection of screens.
       </p>
     </div>
@@ -1120,7 +1120,7 @@ function Paragraph5() {
 
 function Container46() {
   return (
-    <div className="absolute content-stretch flex flex-col gap-[20px] h-[274px] items-start left-[432px] top-[152px] w-[800px]" data-name="Container">
+    <div className="content-stretch flex flex-col gap-[20px] items-start relative shrink-0 w-full" data-name="Container">
       <Paragraph3 />
       <Paragraph4 />
       <Paragraph5 />
@@ -1205,7 +1205,7 @@ function Container50() {
 
 function Container47() {
   return (
-    <div className="absolute border-[#e2e8f0] border-b border-solid border-t h-[126px] left-[432px] top-[474px] w-[800px]" data-name="Container">
+    <div className="border-[#e2e8f0] border-b border-solid border-t h-[126px] relative shrink-0 w-full" data-name="Container">
       <Container48 />
       <Container49 />
       <Container50 />
@@ -1354,7 +1354,7 @@ function Container56() {
 
 function Container51() {
   return (
-    <div className="absolute content-stretch flex flex-col gap-[24px] h-[322.5px] items-start left-[432px] top-[648px] w-[800px]" data-name="Container">
+    <div className="content-stretch flex flex-col gap-[24px] items-start relative shrink-0 w-full" data-name="Container">
       <Heading8 />
       <Container52 />
       <Container54 />
@@ -1365,19 +1365,21 @@ function Container51() {
 
 function Container42() {
   return (
-    <div className="h-[970.5px] relative shrink-0 w-full" data-name="Container">
+    <div className="min-h-[970.5px] relative shrink-0 w-full" data-name="Container">
       <Container43 />
-      <Heading7 />
-      <Container46 />
-      <Container47 />
-      <Container51 />
+      <div className="absolute content-stretch flex flex-col gap-[48px] items-start left-[432px] top-0 w-[800px]">
+        <Heading7 />
+        <Container46 />
+        <Container47 />
+        <Container51 />
+      </div>
     </div>
   );
 }
 
 function Container39() {
   return (
-    <div className="h-[1068.5px] relative shrink-0 w-full" data-name="Container">
+    <div className="min-h-[1068.5px] relative shrink-0 w-full" data-name="Container">
       <div className="content-stretch flex flex-col gap-[64px] items-start px-[24px] relative size-full">
         <Container40 />
         <Container42 />
@@ -1388,7 +1390,7 @@ function Container39() {
 
 function AboutSection() {
   return (
-    <div id="about" className="bg-[#f8fafc] h-[1245px] relative shrink-0 w-full" data-name="AboutSection">
+    <div id="about" className="bg-[#f8fafc] min-h-[1245px] relative shrink-0 w-full" data-name="AboutSection">
       <div className="content-stretch flex flex-col items-start pt-[80px] px-[30.5px] relative size-full">
         <Container39 />
       </div>
