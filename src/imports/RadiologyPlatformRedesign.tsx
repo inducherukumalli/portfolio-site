@@ -1,4 +1,4 @@
-import { useState, useEffect, createContext, useContext } from "react";
+import { useState, useEffect, useRef, createContext, useContext } from "react";
 import svgPaths from "./svg-v68fn0yc73";
 import imgProjectCard from "figma:asset/eecd53d4c7e30b558274726be0ca4e9a5028f173.png";
 import imgProjectCard1 from "figma:asset/1bdc70e7c75407d99d0c2cbbbd3c1acb288500bc.png";
@@ -10,6 +10,7 @@ type SectionTab = "work" | "about" | "process" | "contact";
 const PROJECT_TAB_DEFAULT: ProjectTab = "work";
 const SECTION_TAB_DEFAULT: SectionTab = "work";
 const SECTION_IDS: SectionTab[] = ["work", "about", "process", "contact"];
+const DESIGN_WIDTH = 1341;
 const HEADER_OFFSET = 88;
 
 const ProjectTabContext = createContext<{ activeProjectTab: ProjectTab; setActiveProjectTab: (t: ProjectTab) => void }>({
@@ -3155,8 +3156,11 @@ function ScrollProgressBar() {
 }
 
 export default function RadiologyPlatformRedesign() {
+  const appRef = useRef<HTMLDivElement>(null);
   const [activeProjectTab, setActiveProjectTab] = useState<ProjectTab>(PROJECT_TAB_DEFAULT);
   const [activeSection, setActiveSection] = useState<SectionTab>(SECTION_TAB_DEFAULT);
+  const [pageScale, setPageScale] = useState(1);
+  const [scaledHeight, setScaledHeight] = useState<number | null>(null);
 
   useEffect(() => {
     const updateActiveSection = () => {
@@ -3182,14 +3186,60 @@ export default function RadiologyPlatformRedesign() {
     };
   }, []);
 
+  useEffect(() => {
+    const updateScale = () => {
+      const viewportWidth = window.innerWidth;
+      const fittedScale = (viewportWidth - 32) / DESIGN_WIDTH;
+      setPageScale(Math.min(Math.max(fittedScale, 0.82), 1.08));
+    };
+
+    updateScale();
+    window.addEventListener("resize", updateScale);
+
+    return () => window.removeEventListener("resize", updateScale);
+  }, []);
+
+  useEffect(() => {
+    const node = appRef.current;
+    if (!node) return;
+
+    const updateScaledHeight = () => {
+      setScaledHeight(node.scrollHeight * pageScale);
+    };
+
+    updateScaledHeight();
+
+    const resizeObserver = new ResizeObserver(updateScaledHeight);
+    resizeObserver.observe(node);
+    window.addEventListener("resize", updateScaledHeight);
+
+    return () => {
+      resizeObserver.disconnect();
+      window.removeEventListener("resize", updateScaledHeight);
+    };
+  }, [pageScale]);
+
   return (
     <ProjectTabContext.Provider value={{ activeProjectTab, setActiveProjectTab }}>
       <SectionTabContext.Provider value={{ activeSection, setActiveSection }}>
         <div className="bg-white relative w-full overflow-x-hidden" data-name="Radiology Platform Redesign">
           <ScrollProgressBar />
           <Container121 />
-          <div className="mx-auto w-full max-w-[1341px] overflow-x-hidden">
-            <App />
+          <div
+            className="mx-auto w-full overflow-x-hidden"
+            style={scaledHeight ? { height: `${scaledHeight}px` } : undefined}
+          >
+            <div
+              ref={appRef}
+              className="mx-auto origin-top"
+              style={{
+                width: `${DESIGN_WIDTH}px`,
+                transform: `scale(${pageScale})`,
+                transformOrigin: "top center",
+              }}
+            >
+              <App />
+            </div>
           </div>
         </div>
       </SectionTabContext.Provider>
